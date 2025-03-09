@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- https://dribbble.com/shots/16979133-Agerior-Responsive-Website-Exploration/attachments/12056034?mode=media -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>AGRERIOR</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Font: Raleway */
+
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: middle;
+            object-fit: cover;
+            user-select: none;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .agerior-container {
+            background-image: linear-gradient(90deg, #fff 50%, #f8f8f8 50%);
+            height: 100vh;
+            padding: 30px;
+        }
+
+        .header {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+        }
+
+        .header__brands {
+            font-size: 24px;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .header__navbar {
+            display: flex;
+            gap: 55px;
+        }
+
+        .navbar__item {
+            display: block;
+            text-transform: uppercase;
+            padding: 0.5em;
+            color: #888;
+            font-size: 18px;
+            border-bottom: medium solid transparent;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        .navbar__item.active {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .navbar__item:hover {
+            border-bottom: medium solid #777;
+        }
+
+        /* Button */
+        .header__btn--close {
+            display: none;
+        }
+
+        .header__btn--open {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            max-width: 1500px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            flex: 1;
+            padding: 25px;
+            padding-top: 100px;
+            gap: 25px;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2em;
+        }
+
+        .hero__title {
+            font-size: 50px;
+            font-weight: 400;
+        }
+
+        .hero__description {
+            color: #888;
+            width: 400px;
+        }
+
+        .hero__button {
+            background-color: #000;
+            color: #fff;
+            width: max-content;
+            padding: 1em 2em;
+            border: thin solid #000;
+            transition: 0.2s;
+            user-select: none;
+            font-size: 16px;
+        }
+
+        .hero__button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .hero-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social__item {
+            font-size: 24px;
+            padding: 0.5em 0.6em;
+            display: block;
+            fill: #555;
+        }
+
+        .social__item:hover {
+            fill: #000;
+        }
+
+        .social__item svg {
+            vertical-align: middle;
+        }
+
+        .hero__cover {
+            flex: 1.25;
+        }
+
+        .hero__cover {
+            box-shadow: 0 10px 10px #0002;
+        }
+
+        @media (max-width: 1000px) {
+            .header {
+                padding: 0;
+            }
+
+            .header__navbar {
+                position: absolute;
+                width: 100vw;
+                left: 100%;
+                top: 0;
+                flex-direction: column;
+                background-color: #fff;
+                height: 100vh;
+                transition: 0.2s;
+                gap: 0;
+                padding: 1em;
+            }
+
+            .navbar__item {
+                border-bottom: none;
+                padding: 1em;
+            }
+
+            .navbar__item:hover {
+                border-bottom: none;
+                color: #000;
+            }
+
+            .header__btn--open {
+                display: block;
+            }
+
+            .header__btn--close {
+                display: block;
+                position: absolute;
+                top: 30px;
+                right: 55px;
+                font-size: 30px;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .hero {
+                padding-inline: 0;
+            }
+
+            .hero-content {
+                gap: 1.5em;
+            }
+
+            .hero__title {
+                font-size: 35px;
+            }
+
+            .hero__cover {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="agerior-container">
+        <div class="header">
+            <div class="header__brands">AGERIOR</div>
+            <div class="header__navbar" id="js-header__navbar">
+                <a class="navbar__item active" href="#">Home</a>
+                <a class="navbar__item" href="#">About</a>
+                <a class="navbar__item" href="#">Service</a>
+                <a class="navbar__item" href="#">Project</a>
+                <a class="navbar__item" href="#">Contact</a>
+                <div class="header__btn--close" id="js-header__btn--close">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                        <path
+                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <div class="header__btn--open" id="js-header__btn--open">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                    <path
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="hero__title">
+                    DISCOVER LUXURY INTERIOR DESIGN
+                </h1>
+                <p class="hero__description">We serve all types of interior design for both you private home and your
+                    company.</p>
+                <a class="hero__button" href="#">About Us</a>
+                <div class="hero-social">
+                    <a class="social__item" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                            <path
+                                d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z" />
+                        </svg>
+                    </a>
+                    <a class="social__item" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                            <path
+                                d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
+                        </svg>
+                    </a>
+                    <a class="social__item" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                            <path
+                                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                        </svg>
+                    </a>
+                    <a class="social__item" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512">
+                            <path
+                                d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+            <div class="hero__cover">
+                <img src="https://cdn.pixabay.com/photo/2018/04/22/13/04/hallway-3341001_1280.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- <img src="https://cdn.dribbble.com/users/6881751/screenshots/16979133/media/60d288b78eb87a3c20b2712468e27783.png"  alt=""> -->
+    <script>
+        const headerNavbar = document.getElementById('js-header__navbar')
+        const btnOpen = document.getElementById('js-header__btn--open')
+        const btnClose = document.getElementById('js-header__btn--close')
+        btnOpen.addEventListener('click', e => {
+            headerNavbar.style.left = 0
+        })
+        btnClose.addEventListener('click', e => {
+            headerNavbar.style.left = 100 + '%'
+
+        })
+    </script>
+
+</body>
+
+</html>
